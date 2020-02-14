@@ -16,7 +16,7 @@ services:
       - php
 
   php:
-    image: php-develop
+    build: .
     container_name: app-php-docker
     restart: always
     volumes:

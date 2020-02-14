@@ -12,3 +12,14 @@ sshkey:
 clean:
 	rm -f authorized_keys
 	rm -f php-develop.pem
+
+docker-build:
+	@docker build ./ -t devel-php
+
+docker-run:
+	@docker run -it -d -p 10022:22 --name devel-php devel-php
+  
+docker-bash:
+	@docker exec -it devel-php /bin/bash
+
+.PHONY: clean
