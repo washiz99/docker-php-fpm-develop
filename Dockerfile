@@ -4,6 +4,7 @@ ENV LANG C.UTF-8
 
 # install xdebug, pdo-mysql
 RUN apt-get update -qq && \
+        apt-get install -y unzip \
         pecl install xdebug \
         && docker-php-ext-enable xdebug \
         && docker-php-ext-install pdo_mysql
