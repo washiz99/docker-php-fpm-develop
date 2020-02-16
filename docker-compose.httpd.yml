@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  web:
+    image: httpd:2.4.41
+    container_name: web-httpd
+    volumes:
+      - "./webapp:/var/www/html"                                                                 
+      - "./etc/apache2/conf/httpd.conf:/usr/local/apache2/conf/httpd.conf"                          
+      - "./etc/apache2/conf/extra/httpd-vhosts.conf:/usr/local/apache2/conf/extra/httpd-vhosts.conf"
