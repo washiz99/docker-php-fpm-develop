@@ -10,25 +10,16 @@ sshkey:
 	@chmod 400 ./php/php-develop.pem
 
 clean:
-	rm -f authorized_keys
-	rm -f php-develop.pem
+	rm -f ./php/authorized_keys
+	rm -f ./php/php-develop.pem
 
-docker-build:
-	@docker-compose -f docker-compose.yml -f docker-compose.nginx.yml build
+dc-build:
+	@docker-compose build
 
-docker-nginx-up:
-	@docker-compose -f docker-compose.yml -f docker-compose.nginx.yml up -d
+dc-up:
+	@docker-compose up -d
 
-docker-nginx-down:
-	@docker-compose -f docker-compose.yml -f docker-compose.nginx.yml down
-
-docker-httpd-up:
-	@docker-compose -f docker-compose.yml -f docker-compose.httpd.yml up -d
-  
-docker-httpd-down:
-	@docker-compose -f docker-compose.yml -f docker-compose.httpd.yml down
-
-docker-bash:
-	@docker exec -it devel-php /bin/bash
+dc-down:
+	@docker-compose down
 
 .PHONY: clean
