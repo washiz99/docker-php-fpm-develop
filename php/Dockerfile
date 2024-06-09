@@ -5,7 +5,7 @@ ENV LANG C.UTF-8
 # install xdebug, pdo-mysql, unxip, supervisor
 RUN apt-get update -qq && \
     apt-get install -y unzip supervisor && \
-        pecl install xdebug && \
+        pecl install xdebug-3.1.6 && \
         docker-php-ext-enable xdebug && \
         docker-php-ext-install pdo_mysql
 COPY ./conf.d/20-xdebug.ini /usr/local/etc/php/conf.d/20-xdebug.ini
